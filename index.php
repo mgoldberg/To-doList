@@ -16,8 +16,12 @@
 		</header>
 
 		<div>
+			<!--<input type="checkbox" name="words" value="reading">words<br>-->
+		</div>
 
-		</div
+			<input type="text" name="new" value=""/>	
+
+			<input type="submit" neam="submit" value="Submit">
 
 	</body>
 </html>		
