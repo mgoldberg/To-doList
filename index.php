@@ -2,13 +2,28 @@
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		//if(!empty($_POST['list'])){
-		$list = array();
-		foreach ($_POST['list'] as $task) {
-			array_push($list, $task);
-		}	
-		$new = $_POST['new'];
-		if(!empty($new)){
-			array_push($list, $new);
+		if (isset($_POST['submit'])) {
+			$list = array();
+			foreach ($_POST['list'] as $task) {
+				array_push($list, $task);
+			}	
+			$new = $_POST['new'];
+			if(!empty($new)){
+				array_push($list, $new);
+			}	
+		} else if (isset($_POST['delete'])) {
+			$list = array();
+			foreach ($_POST['list'] as $task) {
+				array_push($list, $task);
+			}
+			$counter = 0;
+			foreach ($list as $task) {
+				if(isset($_POST['list'])){
+					array_splice($list, $counter);
+				}
+				$counter++;
+				echo $counter;
+			}
 		}	
 	}	
 
@@ -45,6 +60,7 @@
 					echo '<input type="hidden" name="list[]" value= "'.$task.'"/>';
 			}?>	
 			<input type="submit" name="submit" value="Submit">
+			<input type="submit" name="delete" value="Delete">
 
 			</form>
 
