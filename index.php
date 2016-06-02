@@ -6,7 +6,6 @@
 	error_log(print_r($_POST['list']));
 
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-		//if(!empty($_POST['list'])){
 		if (isset($_POST['submit'])) {
 			$list = array();
 			foreach ($_POST['list'] as $task) {
@@ -20,9 +19,6 @@
 			echo "added " . $counter;
 		} else if (isset($_POST['delete'])) {
 			$list = array();
-			//error_log(print_r($list));
-			error_log(print_r($_POST['list']));
-			echo implode(', ', $_POST['list']);
 			foreach ($_POST['list'] as $task) {
 				array_push($list, $task);
 			}
@@ -30,19 +26,9 @@
 				foreach ($list as $task) {
 					if($task == $toDelete){
 						unset($list[array_search($task, $list)]);
-						echo "help " . $task;
 					}
 				}
 			}
-			//echo implode(', ', $list);
-			/*foreach ($_POST['list'] as $task) {
-				if(!isset($_POST['list']) ||
-             	 $_POST['list'] == 'on'){
-					echo " meow ";
-					array_push($list, $task);
-				}
-				echo "hi";
-			}*/
 			$counter = count($list);
 			echo $counter;
 		}	
