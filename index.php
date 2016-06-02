@@ -16,25 +16,25 @@
 			if(!empty($new)){
 				array_push($list, $new);
 			}
-			$counter++;
+			$counter = count($list);
 			echo "added " . $counter;
 		} else if (isset($_POST['delete'])) {
 			$list = array();
 			//error_log(print_r($list));
 			error_log(print_r($_POST['list']));
-			foreach ($_POST['list'] as $task) {
+			/*foreach ($_POST['list'] as $task) {
 				array_push($list, $task);
-			}
+			}*/
 			//echo implode(', ', $list);
 			foreach ($_POST['list'] as $task) {
-				if(isset($_POST['your_checkbox_name']) ||
-             	 $_POST['your_checkbox_name'] == 'on'){
+				if(!isset($_POST['list']) ||
+             	 $_POST['list'] != 'on'){
 					echo " meow ";
 					array_push($list, $task);
 				}
 				echo "hi";
 			}
-			$counter--;
+			$counter = count($list);
 			echo $counter;
 		}	
 	}	
