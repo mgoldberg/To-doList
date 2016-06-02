@@ -22,18 +22,27 @@
 			$list = array();
 			//error_log(print_r($list));
 			error_log(print_r($_POST['list']));
-			/*foreach ($_POST['list'] as $task) {
-				array_push($list, $task);
-			}*/
-			//echo implode(', ', $list);
+			echo implode(', ', $_POST['list']);
 			foreach ($_POST['list'] as $task) {
+				array_push($list, $task);
+			}
+			foreach ($_POST['checkedList'] as $toDelete) {
+				foreach ($list as $task) {
+					if($task == $toDelete){
+						unset($list[$task]);
+						echo "help " . $task;
+					}
+				}
+			}
+			//echo implode(', ', $list);
+			/*foreach ($_POST['list'] as $task) {
 				if(!isset($_POST['list']) ||
-             	 $_POST['list'] != 'on'){
+             	 $_POST['list'] == 'on'){
 					echo " meow ";
 					array_push($list, $task);
 				}
 				echo "hi";
-			}
+			}*/
 			$counter = count($list);
 			echo $counter;
 		}	
@@ -61,7 +70,7 @@
 			<?php 
 				$incrementer = 0;
 				foreach ($list as $task) {
-   					echo "<br/><input type='checkbox' name='list' value='$task' />$task<br>";
+   					echo "<br/><input type='checkbox' name='checkedList[]' value='$task' />$task<br>";
    					$incrementer++;
 				}
 			?>
@@ -70,7 +79,7 @@
 
 			<input type="text" name="new" value=""/>	
 			<?php foreach ($list as $task) {
-					echo '<input type="hidden" name="list[]" value= "'.$task.'"/>';
+				echo '<input type="hidden" name="list[]" value= "'.$task.'"/>';
 			}?>	
 			<input type="submit" name="submit" value="Submit">
 			<input type="submit" name="delete" value="Delete">
