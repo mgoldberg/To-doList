@@ -29,7 +29,7 @@
 			foreach ($_POST['checkedList'] as $toDelete) {
 				foreach ($list as $task) {
 					if($task == $toDelete){
-						unset($list[$task]);
+						unset($list[array_search($task, $list)]);
 						echo "help " . $task;
 					}
 				}
