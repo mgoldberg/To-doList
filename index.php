@@ -26,7 +26,7 @@
 				array_push($list, $task);
 			}
 			//echo implode(', ', $list);
-			foreach ($list as $task) {
+			foreach ($_POST['list'] as $task) {
 				if(isset($_POST['your_checkbox_name']) ||
              	 $_POST['your_checkbox_name'] == 'on'){
 					echo " meow ";
@@ -61,7 +61,7 @@
 			<?php 
 				$incrementer = 0;
 				foreach ($list as $task) {
-   					echo "<br/><input type='checkbox' name='list[]' value='$task' />$task<br>";
+   					echo "<br/><input type='checkbox' name='list' value='$task' />$task<br>";
    					$incrementer++;
 				}
 			?>
