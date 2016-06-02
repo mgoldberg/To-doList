@@ -1,5 +1,10 @@
 <?php
 
+	$counter = 0;
+	$counter = $_POST['counter'];
+
+	error_log(print_r($_POST['list']));
+
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		//if(!empty($_POST['list'])){
 		if (isset($_POST['submit'])) {
@@ -10,20 +15,25 @@
 			$new = $_POST['new'];
 			if(!empty($new)){
 				array_push($list, $new);
-			}	
+			}
+			$counter++;
+			echo $counter;
 		} else if (isset($_POST['delete'])) {
 			$list = array();
+			//error_log(print_r($list));
 			foreach ($_POST['list'] as $task) {
 				array_push($list, $task);
 			}
-			$counter = 0;
-			foreach ($list as $task) {
-				if(isset($_POST['list'])){
-					array_splice($list, $counter);
+			//echo implode(', ', $list);
+			/*foreach ($list as $task) {
+				if(($_POST['list'])=='on'){
+					echo " meow ".implode($_POST['list']);
+					array_push($list, $task);
 				}
-				$counter++;
-				echo $counter;
-			}
+				echo "hi";
+			}*/
+			$counter--;
+			echo $counter;
 		}	
 	}	
 
@@ -48,8 +58,10 @@
 		<div>
 			<!--<input type="checkbox" name="words" value="reading">words<br>-->
 			<?php 
+				$incrementer = 0;
 				foreach ($list as $task) {
-   					echo "<br/><input type='checkbox' name=\"list[]\" value='$task' />$task<br>";
+   					echo "<br/><input type='checkbox' name='list[]' value='$task' />$task<br>";
+   					$incrementer++;
 				}
 			?>
 				
@@ -61,7 +73,7 @@
 			}?>	
 			<input type="submit" name="submit" value="Submit">
 			<input type="submit" name="delete" value="Delete">
-
+			<input type="hidden" name="counter" value= "<?php echo $counter; ?>"/>
 			</form>
 
 	</body>
