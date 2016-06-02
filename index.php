@@ -21,17 +21,18 @@
 		} else if (isset($_POST['delete'])) {
 			$list = array();
 			//error_log(print_r($list));
+			error_log(print_r($_POST['list']));
 			foreach ($_POST['list'] as $task) {
 				array_push($list, $task);
 			}
 			//echo implode(', ', $list);
-			/*foreach ($list as $task) {
+			foreach ($list as $task) {
 				if(($_POST['list'])=='on'){
 					echo " meow ".implode($_POST['list']);
 					array_push($list, $task);
 				}
 				echo "hi";
-			}*/
+			}
 			$counter--;
 			echo $counter;
 		}	
