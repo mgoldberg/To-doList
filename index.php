@@ -17,7 +17,7 @@
 				array_push($list, $new);
 			}
 			$counter++;
-			echo $counter;
+			echo "added " . $counter;
 		} else if (isset($_POST['delete'])) {
 			$list = array();
 			//error_log(print_r($list));
@@ -27,8 +27,9 @@
 			}
 			//echo implode(', ', $list);
 			foreach ($list as $task) {
-				if(($_POST['list'])=='on'){
-					echo " meow ".implode($_POST['list']);
+				if(isset($_POST['your_checkbox_name']) ||
+             	 $_POST['your_checkbox_name'] == 'on'){
+					echo " meow ";
 					array_push($list, $task);
 				}
 				echo "hi";
@@ -57,7 +58,6 @@
 		</header>
 
 		<div>
-			<!--<input type="checkbox" name="words" value="reading">words<br>-->
 			<?php 
 				$incrementer = 0;
 				foreach ($list as $task) {
