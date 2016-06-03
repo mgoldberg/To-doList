@@ -1,3 +1,29 @@
 header{
-	color:red;
+	color:#000080;
+	background-color: #cc9900;
+	display: block;
+	padding: 3px;
+	border-radius: 4px;
+	margin-bottom: 3px;
+}
+
+div{
+	color:green;
+	background-color: #b3e6ff;
+	margin-bottom: 3px;
+	border-radius: 3px;
+}
+
+input{
+	color:#336699;
+	background-color: #ccffcc;
+	display: inline-block;
+}
+
+body{
+	background-color: #ffffe6;
+}
+
+#checkbox{
+	background-color: #ccffcc;
 }

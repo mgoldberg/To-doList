@@ -3,8 +3,6 @@
 	$counter = 0;
 	$counter = $_POST['counter'];
 
-	error_log(print_r($_POST['list']));
-
 	if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 		if (isset($_POST['submit'])) {
 			$list = array();
@@ -16,7 +14,6 @@
 				array_push($list, $new);
 			}
 			$counter = count($list);
-			echo "added " . $counter;
 		} else if (isset($_POST['delete'])) {
 			$list = array();
 			foreach ($_POST['list'] as $task) {
@@ -30,7 +27,7 @@
 				}
 			}
 			$counter = count($list);
-			echo $counter;
+			echo "Number of tasks: " . $counter;
 		}	
 	}	
 
@@ -56,7 +53,7 @@
 			<?php 
 				$incrementer = 0;
 				foreach ($list as $task) {
-   					echo "<br/><input type='checkbox' name='checkedList[]' value='$task' />$task<br>";
+   					echo "<br/><input id = checkbox type='checkbox' name='checkedList[]' value='$task' />$task<br>";
    					$incrementer++;
 				}
 			?>
