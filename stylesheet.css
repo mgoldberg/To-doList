@@ -9,6 +9,8 @@ header{
 	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 	font-style: bold;
 	text-decoration: underline;
+	border: black 2px solid;
+	border-radius: 3px;
 }
 
 div{
@@ -45,8 +47,9 @@ body{
 p{
 	/*background-color: black;/*#000080;*
 	color: black;*/
-	margin-bottom: 1px;
+	margin-bottom: 0px;
 	margin-top: 1px;
-	border: black .5px solid;
+	border: #000080 .5px dashed;
 	border-radius: 3px;
+	padding: 0px;
 }
