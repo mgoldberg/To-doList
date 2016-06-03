@@ -53,11 +53,10 @@
 			<?php 
 				$incrementer = 0;
 				foreach ($list as $task) {
-   					echo "<br/><input id = checkbox type='checkbox' name='checkedList[]' value='$task' />$task<br>";
+   					echo "<br/><input id = checkbox type='checkbox' name='checkedList[]' value='$task' />$task<br><p></p>";
    					$incrementer++;
 				}
 			?>
-				
 		</div>
 
 			<input type="text" name="new" value=""/>	
@@ -65,6 +64,7 @@
 				echo '<input type="hidden" name="list[]" value= "'.$task.'"/>';
 			}?>	
 			<input type="submit" name="submit" value="Submit">
+			<br>
 			<input type="submit" name="delete" value="Delete">
 			<input type="hidden" name="counter" value= "<?php echo $counter; ?>"/>
 			</form>
